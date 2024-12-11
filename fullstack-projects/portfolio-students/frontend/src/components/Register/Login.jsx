@@ -31,10 +31,7 @@ export default function Login({ setUser }) {
         setMessage("Login successful!");
         localStorage.setItem("token", data.userData.token);
         setUser(data.userData);
-        console.log(data.userData);
-
         navigate("/home");
-        // location.reload();
       } else {
         setMessage(data.message);
       }
