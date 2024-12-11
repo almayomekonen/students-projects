@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ setUser }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -29,10 +30,11 @@ export default function Login() {
       if (data) {
         setMessage("Login successful!");
         localStorage.setItem("token", data.userData.token);
+        setUser(data.userData);
         console.log(data.userData);
-        console.log("Navigating to /home");
+
         navigate("/home");
-        location.reload();
+        // location.reload();
       } else {
         setMessage(data.message);
       }

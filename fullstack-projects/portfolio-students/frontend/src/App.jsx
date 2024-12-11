@@ -27,9 +27,7 @@ export default function App() {
         const errorText = await response.text();
         throw new Error(errorText);
       }
-
       const data = await response.json();
-      console.log(data);
       setUser(data);
     }
 
@@ -51,7 +49,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login setUser={setUser} />} />
       </Routes>
     </div>
   );

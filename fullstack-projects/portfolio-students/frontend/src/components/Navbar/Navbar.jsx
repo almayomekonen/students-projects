@@ -93,10 +93,15 @@ function Navbar({ user, onLogout }) {
           </Box>
           <Box sx={{ ml: "auto" }}>
             {user && (
-              <ButtonElem onClick={onLogout} style={{ color: "white" }}>
-                LogOut
-              </ButtonElem>
+              <>
+                <ButtonElem onClick={onLogout} style={{ color: "white" }}>
+                  LogOut
+                </ButtonElem>
+              </>
             )}
+          </Box>
+          <Box sx={{ ml: "auto" }}>
+            {user && <h1>Welcome {user?.username || "Guest"}</h1>}
           </Box>
         </Toolbar>
       </AppBar>
