@@ -4,7 +4,6 @@ import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Register/Login";
-import ButtonElem from "./components/Button/Button";
 import { useEffect, useState } from "react";
 import Projects from "./components/Projects/Projects";
 
@@ -45,8 +44,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar setUser={setUser} user={user} />
-      <ButtonElem onClick={handleLogout}>Logout</ButtonElem>
+      <Navbar onLogout={handleLogout} setUser={setUser} user={user} />
+
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />

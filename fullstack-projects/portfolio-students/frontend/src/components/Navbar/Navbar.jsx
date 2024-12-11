@@ -15,12 +15,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import logo from "../../assets/square.png";
+import ButtonElem from "../Button/Button";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Register", "Projects"];
 
 // eslint-disable-next-line react/prop-types
-function Navbar({ user }) {
+function Navbar({ user, onLogout }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -89,6 +90,13 @@ function Navbar({ user }) {
                 </Link>
               </Button>
             ))}
+          </Box>
+          <Box sx={{ ml: "auto" }}>
+            {user && (
+              <ButtonElem onClick={onLogout} style={{ color: "white" }}>
+                LogOut
+              </ButtonElem>
+            )}
           </Box>
         </Toolbar>
       </AppBar>

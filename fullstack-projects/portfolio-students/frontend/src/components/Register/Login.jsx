@@ -32,6 +32,7 @@ export default function Login() {
         console.log(data.userData);
         console.log("Navigating to /home");
         navigate("/home");
+        location.reload();
       } else {
         setMessage(data.message);
       }
